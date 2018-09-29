@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY  % p "test">
+<!ELEMENT roster ((%p;)+)>
+<!ELEMENT %p; (name,sex,birthday,score?,skill+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT birthday (#PCDATA)>
+<!ELEMENT score (#PCDATA)>
+<!ELEMENT skill (#PCDATA)>
+<!ATTLIST %p; id ID #REQUIRED>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies SYSTEM "demo9.dtd">
+<movies>
+	<movie id="1" type="恐怖片">
+		<title></title>
+		<actor></actor>
+		<rating></rating>
+	</movie>
+	<movie id="2">
+		<title></title>
+		<actor></actor>
+		<rating></rating>
+	</movie>
+</movies>

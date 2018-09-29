@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies [
+	<!ELEMENT movies (movie+)>
+	<!ELEMENT movie (title,actor+,rating*)>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT actor (#PCDATA)>
+	<!ELEMENT rating (#PCDATA)>
+]>
+<movies>
+	<movie>
+		<title>空中监狱</title>
+		<actor>尼古拉斯凯奇</actor>
+		<rating>家长陪同</rating>
+	</movie>
+	<movie>
+		<title>西游记</title>
+		<actor>唐僧</actor>
+		<actor>孙悟空</actor>
+	</movie>
+</movies>

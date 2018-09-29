@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+	<stu>
+		<name>李白</name>
+		<url>
+			<![CDATA[
+				<a href="#">个人主页</a>		
+			]]>
+		</url>
+	</stu>
+	
+</class>

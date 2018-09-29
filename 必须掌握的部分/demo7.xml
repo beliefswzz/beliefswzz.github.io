@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html [
+	<!ELEMENT html (body)>
+	<!ELEMENT strong (#PCDATA)>
+	<!ELEMENT body (#PCDATA|strong)*>
+]>
+<html>
+	<body>
+		锄禾日当午，汗滴禾下土。<strong>谁知盘中餐</strong>，粒粒皆辛苦。
+	</body>
+</html>
