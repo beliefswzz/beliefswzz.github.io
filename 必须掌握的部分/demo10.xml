@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE books SYSTEM "demo10.dtd">
-<books>
-	<book id="B001" medium="纸质" pub="工业出版社" type="计算机" pagesize="300"/>
-	<book id="B002" medium="纸质" pub="工业出版社" type="计算机" pagesize="300"/>
-</books>
