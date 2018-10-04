@@ -1,5 +1,5 @@
 <pre>
-
+<h1><center>微信开发</center></h1>
 class WeChat{
 	private $_appid;
 	private $_appsecret;
