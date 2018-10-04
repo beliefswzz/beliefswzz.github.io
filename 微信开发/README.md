@@ -1,4 +1,76 @@
 <pre>
+创建菜单
+define("APPID","wx38bd235f68377184");
+define("APPSECRET","6412760a13e439310695db74fc900ba9");
+define("TOKEN","php39");
+
+header("content-type:text/html;charset=utf-8");
+require("./wechat.inc.php");
+$wechat = new WeChat(APPID,APPSECRET,TOKEN);
+
+$menu='{
+     "button":[
+     {	
+          "type":"click",
+          "name":"新闻",
+          "key":"news"
+      },
+      {
+           "name":"游戏",
+           "sub_button":[
+           {	
+               "type":"view",
+               "name":"飞行学校",
+               "url":"http://yx8.com/game/feixingxuexiao/"
+            },
+            {
+               "type":"view",
+               "name":"丹迪洞穴探险",
+               "url": "http://yx8.com/game/dandidongxuetanxian/"
+            }]
+       }]
+ }';
+$wechat->_createMenu($menu);
+删除菜单
+define("APPID","wx38bd235f68377184");
+define("APPSECRET","6412760a13e439310695db74fc900ba9");
+define("TOKEN","php39");
+
+header("content-type:text/html;charset=utf-8");
+require("./wechat.inc.php");
+$wechat = new WeChat(APPID,APPSECRET,TOKEN);
+
+$wechat->_deleteMenu();
+获取二维码
+define("APPID","wx38bd235f68377184");
+define("APPSECRET","6412760a13e439310695db74fc900ba9");
+define("TOKEN","");
+
+header("content-type:image/jpeg");
+require("./wechat.inc.php");
+$wechat = new WeChat(APPID,APPSECRET,TOKEN);
+
+echo $wechat->_getQRCode(604800,"temp",66);//临时二维码，有效期是7天，场景id是6
+//echo $wechat->_getQRCode(604800,"forever",8);//永久二维码，场景id是8
+获取ticket
+define("APPID","wx38bd235f68377184");
+define("APPSECRET","6412760a13e439310695db74fc900ba9");
+define("TOKEN","");
+
+require("./wechat.inc.php");
+$wechat = new WeChat(APPID,APPSECRET,TOKEN);
+echo $wechat->_getTicket(604800,"temp",8);
+发送消息
+define("APPID","wx38bd235f68377184");
+define("APPSECRET","6412760a13e439310695db74fc900ba9");
+define("TOKEN","php39");
+
+header("content-type:text/html;charset=utf-8");
+require("./wechat.inc.php");
+$wechat = new WeChat(APPID,APPSECRET,TOKEN);
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 <h1><center>微信开发</center></h1>
 class WeChat{
 	private $_appid;
