@@ -80,3 +80,16 @@ Select * from category;
 
 将某张表数据，分别存储到不同的区域中。
 <img src='https://beliefswzz.github.io/image/b.jpg'>
+其实：每个分区，就是独立的表。都要存储该分区数据的数据，索引等信息。
+
+创建分区：
+	在创建表时，指定分区的选项：
+
+Create table table_name (
+	定义
+)
+Partition by 分区算法 (参数) 分区选项。
+分区算法：
+	MySQL提供4种
+	取余：Key，hash
+	条件：List，range
