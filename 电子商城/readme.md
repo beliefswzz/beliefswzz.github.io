@@ -1,6 +1,6 @@
 <pre>
-项目描述：
-	类似于京东商城<br>
+<h1><p color='yellow'>项目描述：
+	类似于京东商城<br></p></h1>
 <h1><center>购物车</center></h1>
 	<h3><center>/************************************ 加入购物车********************************************/</center><h3><center>
 	public function addToCart($goods_id, $goods_attr_id, $goods_number = 1)
