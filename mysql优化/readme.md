@@ -59,3 +59,4 @@ Select * from category;
 索引的使用
 利用关键字，就是记录的部分数据（某个字段，某些字段，某个字段的一部分），建立与记录位置的对应关系，就是索引。
 索引的关键字一定是排序的。
+<img src='https://beliefswzz.github.io/image/a.jpg'>
