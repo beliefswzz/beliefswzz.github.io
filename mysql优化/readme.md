@@ -79,3 +79,4 @@ Select * from category;
 分表，水平分表，分裂
 
 将某张表数据，分别存储到不同的区域中。
+<img src='https://beliefswzz.github.io/image/b.jpg'>
