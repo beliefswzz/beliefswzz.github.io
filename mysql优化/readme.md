@@ -1,1 +1,61 @@
-mysql优化
+锁
+	当客户端操作表（记录）时，为了保证操作的隔离性（多个客户端操作不能互相影响），通过加锁来处理。
+	操作方面：
+读锁：读操作时增加的锁，也叫共享锁，S-lock。特征是 阻塞其他客户端的写操作，不阻塞读操作。
+写锁：写操作时增加的锁，也叫独占锁或排他锁，X-lock。特征，阻塞其他客户端的读，写操作。
+	
+	锁定粒度（范围）：
+		行级：提升并发性，锁本身开销大
+		表级：不利于并发性，锁本身开销小。
+
+
+类型选择
+满足需求。
+原则：
+
+尽可能小（占用存储空间少）
+Tinyint, smallint, mediumint,int, bigint
+Varchar(N) varchar(M)
+Datetime, timestamp
+
+尽可能定长（占用存储空间固定）
+Char,varchar
+Decimal（变长）, double(float)(定长)
+
+尽可能使用整数
+IPV4， int unsigned， varchar(15)
+Enum
+Set
+
+多用位运算。
+
+
+范式，逆范式
+Goods
+Goods_id, goods_name, cat_id
+
+Category
+Cat_id, cat_name,
+
+
+分类列表查询：
+分类ID		分类名称	商品数量
+3			计算机		567
+
+Select c.*, count(g.goods_id) as goods_count from category as c left join goods as g c.cat_id=g.cat_id group by c.cat_id;
+此时商品数量较大。
+
+重新设计category表：增加存当前分类下商品数量的字段。
+Category
+Cat_id, cat_name, goods_count
+
+每当商品改动时，修改对应分类的数量信息。
+再查询分类列表时：
+Select * from category;
+此时额外的消耗，出现在维护该字段的正确性上，保证商品的任何更新都正确的处理该数量才可以。
+
+
+
+索引的使用
+利用关键字，就是记录的部分数据（某个字段，某些字段，某个字段的一部分），建立与记录位置的对应关系，就是索引。
+索引的关键字一定是排序的。
