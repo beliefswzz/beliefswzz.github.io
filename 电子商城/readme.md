@@ -1,3 +1,4 @@
+<pre>
 <h1><p color='yellow'>项目描述：
 	类似于京东商城<br></p></h1>
 <h1><center>购物车</center></h1>
@@ -449,3 +450,4 @@ protected function _after_insert($data, $option)
 		$arModel->where(array('admin_id'=>array('eq', $option['where']['id'])))->delete();
 	}
 }
+</pre>
