@@ -1,4 +1,3 @@
-<pre>
 <h1><p color='yellow'>项目描述：
 	类似于京东商城<br></p></h1>
 <h1><center>购物车</center></h1>
@@ -18,7 +17,7 @@
 			// 判断是否商品已经存在
 			if($has)
 				$cartModel->where('id='.$has['id'])->setInc('goods_number', $goods_number);
-			else 
+			else
 				$cartModel->add(array(
 					'goods_id' => $goods_id,
 					'goods_attr_id' => $goods_attr_id,
@@ -26,7 +25,7 @@
 					'member_id' => $mid,
 				));
 		}
-		else 
+		else
 		{
 			// 先从COOKIE中取出购物车的数组
 			$cart = isset($_COOKIE['cart']) ? unserialize($_COOKIE['cart']) : array();
@@ -43,7 +42,7 @@
 		}
 	}
 
-	
+
 <h3><center>/************************************购物车列表********************************************/</center></h3>
 	public function cartList()
 	{
@@ -53,7 +52,7 @@
 			$cartModel = M('Cart');
 			$_cart = $cartModel->where(array('member_id'=>array('eq', $mid)))->select();
 		}
-		else 
+		else
 		{
 			$_cart_ = isset($_COOKIE['cart']) ? unserialize($_COOKIE['cart']) : array();
 			// 转化这个数组结构和从数据库中取出的数组结构一样，都是二维的
@@ -84,8 +83,8 @@
 		}
 		return $_cart;
 	}
-	
-	
+
+
 <h3><center>/************************************ 把COOKIE中的数据转移到数据库中并清空COOKIE中的数据********************************************/</center></h3>
 	public function moveDataToDb()
 	{
@@ -121,14 +120,14 @@
 					'goods_attr_id' => array('eq', $gaid),
 					'member_id' => array('eq', $mid),
 				))->delete();
-			else 
+			else
 				$cartModel->where(array(
 					'goods_id' => array('eq', $gid),
 					'goods_attr_id' => array('eq', $gaid),
 					'member_id' => array('eq', $mid),
 				))->setField('goods_number', $gn);
 		}
-		else 
+		else
 		{
 			// 先从COOKIE中取出购物车的数组
 			$cart = isset($_COOKIE['cart']) ? unserialize($_COOKIE['cart']) : array();
@@ -146,14 +145,14 @@
 ————————————————————————————————————————————————————————————————
 ————————————————————————————————————————————————————————————————
 <h1><center>权限管理</center><h1>
-	
+
 <h3><center>/************************************ 返回权限列表********************************************/</center></h3>
 	public function getTree()
 	{
 		$data = $this->select();
 		return $this->_reSort($data);
 	}
-       根据主权限找出子权限，并返回权限列表	
+       根据主权限找出子权限，并返回权限列表
 	private function _reSort($data, $parent_id=0, $level=0, $isClear=TRUE)
 	{
 		static $ret = array();
@@ -170,15 +169,15 @@
 		}
 		return $ret;
 	}
-     
+
 <h3><center>/************************************ 根据id找出对应的权限，并返回********************************************/</center></h3>
 	public function getChildren($id)
 	{
 		$data = $this->select();
 		return $this->_children($data, $id);
 	}
-     	
-<h3><center>/************************************ 根据id找出子权限列表，并返回权限列表，并返回********************************************/</center><h3><center>	
+
+<h3><center>/************************************ 根据id找出子权限列表，并返回权限列表，并返回********************************************/</center><h3><center>
 	private function _children($data, $parent_id=0, $isClear=TRUE)
 	{
 		static $ret = array();
@@ -195,8 +194,8 @@
 		return $ret;
 	}
 	<h3><center>/************************************ 其他方法 ********************************************/</center></h3>
-	
-     
+
+
 <h3><center>/************************************ 删除主权限之前先删除所有的子权限	********************************************/</center><h3>
 	public function _before_delete($option)
 	{
@@ -350,19 +349,19 @@ protected function _after_insert($data, $option)
 					session('username', $user['username']);
 					return TRUE;
 				}
-				else 
+				else
 				{
 					$this->error = '密码不正确！';
 					return FALSE;
 				}
 			}
-			else 
+			else
 			{
 				$this->error = '账号被禁用！';
 				return FALSE;
 			}
 		}
-		else 
+		else
 		{
 			$this->error = '用户名不存在！';
 			return FALSE;
@@ -415,7 +414,7 @@ protected function _after_insert($data, $option)
 		// 如果是超级管理员必须是启用的
 		if($option['where']['id'] == 1)
 			$data['is_use'] = 1;         // 直接设置为启用状态
-			
+
 		$roleId = I('post.role_id');
 		// 先清除原来的数据
 		$arModel = M('AdminRole');
@@ -433,7 +432,7 @@ protected function _after_insert($data, $option)
 		// 判断密码为空就不修改这个字段
 		if(empty($data['password']))
 			unset($data['password']);
-		else 
+		else
 			$data['password'] = md5($data['password'] . C('MD5_KEY'));
 	}
     <h3><center>/************************************** 删除前******************************************/</center></h3>
@@ -450,4 +449,3 @@ protected function _after_insert($data, $option)
 		$arModel->where(array('admin_id'=>array('eq', $option['where']['id'])))->delete();
 	}
 }
-</pre>
